@@ -7,7 +7,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class Counter {
 
-    private AtomicInteger value = new AtomicInteger();
+    private final AtomicInteger value = new AtomicInteger();
 
     public int getValue() {
         return value.get();
@@ -23,7 +23,6 @@ public class Counter {
 
         while (!value.compareAndSet(oldValue, oldValue + 1)) {
             oldValue = value.get();
-
         }
 
         return oldValue + 1;
